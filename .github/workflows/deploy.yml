@@ -1,0 +1,32 @@
+name: Deploy Static Waiting Page
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Tests
+      run: npm test
+
+    - name: Deploy
+      # This step simulates deployment to a generic hosting environment.
+      # You can replace this with specific actions for GitHub Pages, AWS S3, Vercel, Netlify, etc.
+      run: |
+        echo "Deploying to hosting environment..."
+        echo "Simulated deployment successful."

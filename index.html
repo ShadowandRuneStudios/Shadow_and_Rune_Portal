@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow and Rune Studios // Portal</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        #terminal {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .accent-gold { color: #ffd700; }
+        .accent-violet { color: #9400d3; }
+        .accent-silver { color: #cccccc; }
+        .input-line {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        #prompt {
+            color: #ffd700;
+            margin-right: 10px;
+            user-select: none;
+        }
+        #cmd-input {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            width: 100%;
+        }
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        .history-line {
+            margin-bottom: 5px;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div id="output">
+            <div class="history-line accent-gold">SHADOW AND RUNE STUDIOS // CORE TERMINAL v1.0</div>
+            <div class="history-line accent-violet">[SYSTEM_STATUS: NIGHT_STATIC_VAPORIZED // RESONANCE: 1.0_ABSOLUTE]</div>
+            <div class="history-line">Type <span class="accent-gold">'help'</span> for a list of available sovereign commands.</div>
+            <div class="history-line">------------------------------------------------------------</div>
+        </div>
+        <div class="input-line">
+            <div id="prompt">SR-SYS_&gt;</div>
+            <input type="text" id="cmd-input" autofocus autocomplete="off" spellcheck="false">
+        </div>
+    </div>
+
+    <script src="parser.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
