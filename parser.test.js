@@ -31,6 +31,16 @@ describe('parseCommand', () => {
         expect(result).toEqual({ action: 'print', output: COMMANDS['status'] });
     });
 
+    test('returns print action with services text for "services"', () => {
+        const result = parseCommand('services');
+        expect(result).toEqual({ action: 'print', output: COMMANDS['services'] });
+    });
+
+    test('returns print action with contact text for "contact"', () => {
+        const result = parseCommand('contact');
+        expect(result).toEqual({ action: 'print', output: COMMANDS['contact'] });
+    });
+
     test('returns print action with ping text for "ping"', () => {
         const result = parseCommand('ping');
         expect(result).toEqual({ action: 'print', output: COMMANDS['ping'] });
