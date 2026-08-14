@@ -59,4 +59,30 @@ describe('parseCommand', () => {
         const result = parseCommand('');
         expect(result).toEqual({ action: 'none' });
     });
+
+    test('returns help text for "negative" without keyword', () => {
+        const result = parseCommand('negative');
+        expect(result).toEqual({
+            action: 'print',
+            output: "Usage: negative [keyword]. Example: negative raven",
+            className: 'accent-silver'
+        });
+    });
+
+    test('returns matched lore for "negative [keyword]"', () => {
+        const result = parseCommand('negative raven');
+        expect(result).toEqual({
+            action: 'print',
+            output: "<span class='accent-violet'>[ARCHIVE MATCH FOUND]</span>\nThe Nine: Spooky-cute, soft-gothic lore. A coalition of plush entities guarding the threshold between waking life and the sleep realm."
+        });
+    });
+
+    test('returns not found message for "negative [unknown_keyword]"', () => {
+        const result = parseCommand('negative fafnir');
+        expect(result).toEqual({
+            action: 'print',
+            output: "No archive entry found for 'fafnir'.",
+            className: 'accent-silver'
+        });
+    });
 });
