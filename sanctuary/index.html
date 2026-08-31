@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Sanctuary Hub — Shadow & Rune Studios</title>
+  <meta name="description" content="Your digital cycle sanctuary. 40Hz Taiga Hearth Drone soundscapes, digital Tide Ledger clock, and zero-waste upcycling workshops.">
+  <link rel="stylesheet" href="../css/studio.css">
+  <style>
+    .pwa-container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
+    }
+    .audio-dial {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--accent-violet-glow);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .slider-control {
+      width: 100%;
+      accent-color: var(--accent-violet);
+      margin: 16px 0;
+    }
+    .clock-svg {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+    }
+    .bottom-tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 14, 0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--bg-card-border);
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      z-index: 1000;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      color: var(--accent-copper);
+    }
+    .view-section {
+      display: none;
+    }
+    .view-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body style="background-color: #0A0A0E;">
+
+  <!-- Main Mobile Container -->
+  <div class="pwa-container">
+
+    <!-- Top Header -->
+    <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--bg-card-border);">
+      <div style="font-family: var(--font-serif); font-size: 1rem; color: var(--text-bone);">
+        <span style="color: var(--accent-copper);">☽</span> SANCTUARY HUB
+      </div>
+      <span style="font-size: 0.75rem; color: var(--accent-violet); font-family: monospace;">40Hz // ONLINE</span>
+    </header>
+
+    <!-- VIEW 1: HEARTH AUDIO (Default) -->
+    <div id="view-audio" class="view-section active">
+      <div class="audio-dial">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <span class="pulse-indicator"></span>
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-violet);">Taiga Hearth Resonance</span>
+        </div>
+        <h3 style="font-size: 1.4rem; margin-bottom: 6px;">40Hz Binaural Hum</h3>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px;">Looping low-frequency drone for pain distraction, sleep, and pelvic calming.</p>
+
+        <!-- Play/Pause Button -->
+        <button id="audio-toggle-btn" class="btn btn-violet" style="width: 100%; padding: 14px;" onclick="toggleAudioDrone()">
+          ▶ Play 40Hz Hearth Drone
+        </button>
+
+        <!-- Volume Slider -->
+        <div style="margin-top: 16px; text-align: left;">
+          <label style="font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+            <span>Drone Resonance Volume</span>
+            <span id="vol-val">70%</span>
+          </label>
+          <input type="range" min="0" max="100" value="70" class="slider-control" oninput="setAudioVolume(this.value)">
+        </div>
+      </div>
+
+      <!-- Guardian Whisper Affirmation Card -->
+      <div class="card" style="border: 1px solid rgba(214, 155, 155, 0.25); text-align: center; padding: 24px; margin-bottom: 24px;">
+        <span class="section-tag" style="color: var(--accent-copper); font-size: 0.7rem;">Guardian Whisper of the Day</span>
+        <blockquote id="affirmation-text" style="font-family: var(--font-serif); font-size: 0.95rem; color: var(--text-bone); font-style: italic; margin-bottom: 14px;">
+          "The frost may be thick outside, but the hearth is steady. Rest your bones; the Sentinel holds the watch tonight."
+        </blockquote>
+        <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 16px;" onclick="generateNewAffirmation()">✦ New Whisper</button>
+      </div>
+    </div>
+
+    <!-- VIEW 2: DIGITAL TIDE CLOCK -->
+    <div id="view-clock" class="view-section">
+      <div class="card" style="padding: 24px; text-align: center; margin-bottom: 24px;">
+        <span class="section-tag" style="color: var(--accent-copper);">Digital Tide Ledger</span>
+        <h3 style="font-size: 1.3rem; margin-bottom: 8px;">28-Day Radial Cycle Clock</h3>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 16px;">Tap any segment to log energy, comfort, or flow level.</p>
+
+        <!-- SVG 28-Day Clock -->
+        <svg id="tide-clock-svg" class="clock-svg" viewBox="-120 -120 240 240"></svg>
+
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 16px; font-size: 0.75rem; color: var(--text-muted);">
+          <span>🔴 Bleed Phase</span>
+          <span>🟣 Rest / Cramps</span>
+          <span>🟢 High Energy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: SECOND-LIFE WORKSHOP & GUIDES -->
+    <div id="view-guides" class="view-section">
+      <div class="card" style="padding: 24px; margin-bottom: 16px;">
+        <span class="section-tag" style="color: var(--accent-emerald);">Upcycling Workshop</span>
+        <h4 style="font-size: 1.1rem; margin-bottom: 6px;">🌿 How to Plant Your Wildflower Band</h4>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Fill your small refill box with potting soil, lay the seed paper band flat, cover with 1/4" dirt, and water gently.</p>
+        <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Watch 60s Video Guide</button>
+      </div>
+
+      <div class="card" style="padding: 24px; margin-bottom: 16px;">
+        <span class="section-tag" style="color: var(--accent-violet);">Sanctuary Organizing</span>
+        <h4 style="font-size: 1.1rem; margin-bottom: 6px;">🗄️ Styling Your Linen Drawer Caddy</h4>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">How to arrange your 16-pad collection into clean, color-coded vanity organizers across the year.</p>
+        <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">View Photo Guide</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-tab-bar">
+    <button class="tab-btn active" onclick="switchAppTab('audio', this)">
+      <span>🎧</span>
+      <span>Hearth Drone</span>
+    </button>
+    <button class="tab-btn" onclick="switchAppTab('clock', this)">
+      <span>🌕</span>
+      <span>Tide Clock</span>
+    </button>
+    <button class="tab-btn" onclick="switchAppTab('guides', this)">
+      <span>🌱</span>
+      <span>Workshops</span>
+    </button>
+    <a href="../blood-moon-circle/" class="tab-btn" style="color: var(--text-muted);">
+      <span>📦</span>
+      <span>The Box</span>
+    </a>
+  </div>
+
+  <!-- Interactive Audio & Clock Scripts -->
+  <script>
+    // Tab Switching
+    function switchAppTab(tabId, btn) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('view-' + tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // Web Audio API 40Hz Binaural Drone Synthesizer
+    let audioCtx = null;
+    let osc1 = null;
+    let osc2 = null;
+    let gainNode = null;
+    let isPlaying = false;
+
+    function toggleAudioDrone() {
+      const btn = document.getElementById('audio-toggle-btn');
+      if (!isPlaying) {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // 40Hz pure sine wave + 18Hz sub-resonance
+        osc1 = audioCtx.createOscillator();
+        osc2 = audioCtx.createOscillator();
+        gainNode = audioCtx.createGain();
+
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(40, audioCtx.currentTime); // 40Hz Gamma / Pain relief
+
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(18, audioCtx.currentTime); // 18Hz Salt-Glass Bedrock
+
+        const vol = document.querySelector('.slider-control').value / 100 * 0.2;
+        gainNode.gain.setValueAtTime(vol, audioCtx.currentTime);
+
+        osc1.connect(gainNode);
+        osc2.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        osc1.start();
+        osc2.start();
+
+        isPlaying = true;
+        btn.textContent = '⏸ Pause 40Hz Hearth Drone';
+        btn.classList.remove('btn-violet');
+        btn.classList.add('btn-primary');
+      } else {
+        if (osc1) osc1.stop();
+        if (osc2) osc2.stop();
+        isPlaying = false;
+        btn.textContent = '▶ Play 40Hz Hearth Drone';
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-violet');
+      }
+    }
+
+    function setAudioVolume(val) {
+      document.getElementById('vol-val').textContent = val + '%';
+      if (gainNode && audioCtx) {
+        gainNode.gain.setValueAtTime((val / 100) * 0.2, audioCtx.currentTime);
+      }
+    }
+
+    // 28-Day SVG Clock Generator
+    const clockSvg = document.getElementById('tide-clock-svg');
+    const totalDays = 28;
+    const colorsList = ['#2C2D42', '#D64545', '#9D72F3', '#43D692', '#E5C378'];
+
+    for (let i = 0; i < totalDays; i++) {
+      const angleStep = (2 * Math.PI) / totalDays;
+      const startAngle = i * angleStep - Math.PI / 2;
+      const endAngle = (i + 1) * angleStep - Math.PI / 2;
+
+      const rIn = 60;
+      const rOut = 105;
+
+      const x1 = rIn * Math.cos(startAngle);
+      const y1 = rIn * Math.sin(startAngle);
+      const x2 = rOut * Math.cos(startAngle);
+      const y2 = rOut * Math.sin(startAngle);
+      const x3 = rOut * Math.cos(endAngle);
+      const y3 = rOut * Math.sin(endAngle);
+      const x4 = rIn * Math.cos(endAngle);
+      const y4 = rIn * Math.sin(endAngle);
+
+      const pathData = `M ${x1} ${y1} L ${x2} ${y2} A ${rOut} ${rOut} 0 0 1 ${x3} ${y3} L ${x4} ${y4} A ${rIn} ${rIn} 0 0 0 ${x1} ${y1} Z`;
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', pathData);
+      path.setAttribute('fill', colorsList[0]);
+      path.setAttribute('stroke', '#0A0A0E');
+      path.setAttribute('stroke-width', '1.5');
+      path.classList.add('clock-slice');
+
+      let colorIdx = 0;
+      path.onclick = function() {
+        colorIdx = (colorIdx + 1) % colorsList.length;
+        path.setAttribute('fill', colorsList[colorIdx]);
+      };
+
+      clockSvg.appendChild(path);
+    }
+
+    // Affirmation Generator
+    const whispers = [
+      "\"The frost may be thick outside, but the hearth is steady. Rest your bones; the Sentinel holds the watch tonight.\"",
+      "\"You do not need to explain your quiet. Your boundaries are sacred.\"",
+      "\"Let the warmth sink deep. The earth rests before it blooms, and so do you.\"",
+      "\"Truth does not hurry. Anchor your breath to the bedrock.\"",
+      "\"Your cycle is not an inconvenience; it is a sacred cadence.\""
+    ];
+
+    function generateNewAffirmation() {
+      const el = document.getElementById('affirmation-text');
+      const randomWhisper = whispers[Math.floor(Math.random() * whispers.length)];
+      el.textContent = randomWhisper;
+    }
+  </script>
+
+</body>
+</html>
