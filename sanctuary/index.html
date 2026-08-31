@@ -174,9 +174,12 @@
   <!-- Interactive Audio & Clock Scripts -->
   <script>
     // Tab Switching
+    const viewSections = document.querySelectorAll('.view-section');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+
     function switchAppTab(tabId, btn) {
-      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      viewSections.forEach(el => el.classList.remove('active'));
+      tabBtns.forEach(el => el.classList.remove('active'));
       document.getElementById('view-' + tabId).classList.add('active');
       btn.classList.add('active');
     }
