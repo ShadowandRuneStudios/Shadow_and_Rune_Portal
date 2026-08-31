@@ -245,6 +245,8 @@
     const totalDays = 28;
     const colorsList = ['#2C2D42', '#D64545', '#9D72F3', '#43D692', '#E5C378'];
 
+    const fragment = document.createDocumentFragment();
+
     for (let i = 0; i < totalDays; i++) {
       const angleStep = (2 * Math.PI) / totalDays;
       const startAngle = i * angleStep - Math.PI / 2;
@@ -277,6 +279,9 @@
         path.setAttribute('fill', colorsList[colorIdx]);
       };
 
+      fragment.appendChild(path);
+    }
+    clockSvg.appendChild(fragment);
       clockSvg.appendChild(path);
     }
 
