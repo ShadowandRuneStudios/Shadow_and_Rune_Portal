@@ -35,6 +35,11 @@ jobs:
     - name: Clean up node_modules
       run: rm -rf node_modules
 
+    - name: Prepare deployment directory
+      run: |
+        mkdir _site
+        rsync -av --exclude='_site' --exclude='.git' --exclude='.github' --exclude='package.json' --exclude='package-lock.json' --exclude='server.js' --exclude='.gitignore' ./ _site/
+
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
@@ -43,6 +48,7 @@ jobs:
       with:
         # Upload public directory
         path: 'public'
+        path: '_site'
 
   deploy:
     environment:
