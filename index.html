@@ -1,156 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shadow & Rune Studios — Master Production Portal</title>
-  <meta name="description" content="A multi-disciplinary production studio crafting immersive episodic narratives, resonant frequency soundscapes, and physical sanctuary products.">
-  <link rel="stylesheet" href="css/studio.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow and Rune Studios // The Moon-Glass Portals</title>
+
+    <!-- Open Graph & Meta Branding -->
+    <meta name="description" content="Master production hub, sensory sanctuary, and narrative archives of Shadow and Rune Studios.">
+    <meta name="theme-color" content="#0D0D0D">
+    <meta property="og:title" content="Shadow and Rune Studios // Portals">
+    <meta property="og:description" content="Step through the Moon-Glass Portals into the active productions, cycle-care sanctuary, and lore vault.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: Cinzel & Medula One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Medula+One&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --noir-deep: #0D0D0D;
+            --noir-medium: #1A1A1A;
+            --rune-silver: #C0C0C0;
+            --blood-moon: #8B0000;
+            --liquid-gold: #FFD700;
+            --ley-violet: #9400D3;
+            --shadow-overlay: rgba(0, 0, 0, 0.85);
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Medula One', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--noir-deep);
+            color: var(--rune-silver);
+            font-family: var(--font-body);
+            font-size: 1.35rem;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% 20%, rgba(26, 26, 26, 0.8) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.08) 0%, transparent 50%);
+        }
+
+        /* Sensory & Audio Control Bar */
+        .top-bar {
+            width: 100%;
+            max-width: 1200px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .studio-sigil {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--rune-silver);
+            text-transform: uppercase;
+        }
+
+        .audio-toggle {
+            background: transparent;
+            border: 1px solid var(--rune-silver);
+            color: var(--rune-silver);
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .audio-toggle:hover, .audio-toggle.active {
+            background: var(--rune-silver);
+            color: var(--noir-deep);
+            border-color: var(--rune-silver);
+            box-shadow: 0 0 12px rgba(192, 192, 192, 0.3);
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            margin: 2rem 1rem 3rem 1rem;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            letter-spacing: 4px;
+            color: var(--rune-silver);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(192, 192, 192, 0.2);
+        }
+
+        .subtitle {
+            color: var(--liquid-gold);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Portals Container Grid */
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem 4rem 2rem;
+        }
+
+        /* Individual Moon-Glass Portal Card */
+        .portal-card {
+            background: var(--noir-medium);
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            border-radius: 8px;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--rune-silver);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(192, 192, 192, 0.15);
+        }
+
+        /* Swirling Moon-Glass Sphere */
+        .moon-glass {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(192, 192, 192, 0.1);
+        }
+
+        .vortex {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            animation: spin-vortex 12s linear infinite;
+        }
+
+        /* Portal Specific Energy Colors */
+        .portal-weavers .moon-glass {
+            border: 2px solid rgba(255, 215, 0, 0.4);
+        }
+        .portal-weavers .vortex {
+            background: conic-gradient(from 0deg, transparent, var(--liquid-gold), var(--ley-violet), transparent);
+        }
+
+        .portal-blood .moon-glass {
+            border: 2px solid rgba(139, 0, 0, 0.5);
+        }
+        .portal-blood .vortex {
+            background: conic-gradient(from 0deg, transparent, var(--blood-moon), var(--rune-silver), transparent);
+        }
+
+        .portal-vault .moon-glass {
+            border: 2px solid rgba(192, 192, 192, 0.4);
+        }
+        .portal-vault .vortex {
+            background: conic-gradient(from 0deg, transparent, var(--rune-silver), #4A4A4A, transparent);
+        }
+
+        .portal-core {
+            width: 110px;
+            height: 110px;
+            background: var(--noir-deep);
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
+        }
+
+        .rune-glyph {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--rune-silver);
+        }
+
+        /* Portal Text Content */
+        .portal-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--rune-silver);
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .portal-status {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .portal-weavers .portal-status { color: var(--liquid-gold); }
+        .portal-blood .portal-status { color: var(--blood-moon); }
+        .portal-vault .portal-status { color: var(--rune-silver); }
+
+        .portal-desc {
+            font-size: 1.3rem;
+            color: #A0A0A0;
+            line-height: 1.4;
+        }
+
+        /* The Hearth Dispatch Mailing List */
+        .hearth-section {
+            width: 100%;
+            max-width: 700px;
+            background: var(--noir-medium);
+            border: 1px solid var(--blood-moon);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 0 1.5rem 5rem 1.5rem;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.15);
+        }
+
+        .hearth-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: var(--rune-silver);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .hearth-sub {
+            font-size: 1.35rem;
+            color: #CCCCCC;
+            margin-bottom: 2rem;
+        }
+
+        .hearth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        @media (min-width: 600px) {
+            .hearth-form {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .hearth-input {
+            background: var(--noir-deep);
+            border: 1px solid var(--rune-silver);
+            color: var(--rune-silver);
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            max-width: 380px;
+            outline: none;
+        }
+
+        .hearth-input:focus {
+            border-color: var(--liquid-gold);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .hearth-btn {
+            background: transparent;
+            border: 1px solid var(--blood-moon);
+            color: var(--rune-silver);
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            padding: 0.8rem 1.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .hearth-btn:hover {
+            background: var(--blood-moon);
+            color: #FFFFFF;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+        }
+
+        .form-feedback {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: var(--liquid-gold);
+            display: none;
+        }
+
+        /* Modal Transmission Card */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--shadow-overlay);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 1.5rem;
+        }
+
+        .modal-card {
+            background: var(--noir-medium);
+            border: 1px solid var(--rune-silver);
+            max-width: 600px;
+            width: 100%;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--rune-silver);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--rune-silver);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .modal-status {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .modal-body {
+            font-size: 1.35rem;
+            color: #CCCCCC;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+
+        /* Keyframes & Reduced Motion Fallbacks */
+        @keyframes spin-vortex {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .vortex {
+                animation: none;
+                opacity: 0.6;
+            }
+            .portal-card:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="header-nav">
-    <div class="brand-logo">
-      <span>✦</span> SHADOW & RUNE STUDIOS
+    <!-- Top Sensory Bar -->
+    <div class="top-bar">
+        <div class="studio-sigil">Shadow & Rune Studios</div>
+        <button class="audio-toggle" id="audio-btn" aria-label="Toggle Sub-Bass Resonance">
+            [Resonance: Muted]
+        </button>
     </div>
-    <ul class="nav-links">
-      <li><a href="#productions">Productions</a></li>
-      <li><a href="#sanctuary-circle">The Blood Moon</a></li>
-      <li><a href="#merch-vault">Merch Vault</a></li>
-      <li><a href="#lore">Taiga Lore</a></li>
-      <li><a href="blood-moon-circle/" class="btn btn-primary" style="padding: 6px 16px;">Pre-Order Box</a></li>
-    </ul>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero-studio" style="min-height: 80vh; display: flex; align-items: center; background: radial-gradient(circle at center, rgba(157, 114, 243, 0.08) 0%, rgba(10, 10, 14, 1) 75%);">
-    <div class="container" style="text-align: center;">
-      <span class="section-tag">Independent Creative Production House</span>
-      <h1 style="font-size: 3rem; margin-bottom: 24px; line-height: 1.2;">Crafting Immersive Worlds,<br>Resonant Frequencies & Sanctuaries</h1>
-      <p style="max-width: 680px; margin: 0 auto 36px; color: var(--text-muted); font-size: 1.05rem;">
-        Bridging the deep mythic resonance of The Negative into physical craft, episodic storytelling, and therapeutic cycle-care rituals.
-      </p>
-      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="blood-moon-circle/" class="btn btn-primary">✦ Enter The Blood Moon Circle</a>
-        <a href="#productions" class="btn btn-secondary">Explore Active Productions</a>
-      </div>
+    <!-- Header -->
+    <header>
+        <h1>The Moon-Glass Portals</h1>
+        <div class="subtitle">Step Through the Threshold</div>
+    </header>
+
+    <!-- The 3 Moon-Glass Portals Grid -->
+    <main class="portals-grid">
+
+        <!-- Portal 1: The Weavers Coil Galaxy -->
+        <article class="portal-card portal-weavers" onclick="openPortalModal('The Weavers Coil Galaxy', '[FREQUENCY TUNING: 18Hz // APPROACHING ORBIT]', 'The cosmic narrative hub and production slate. Housing the neural sci-fi chronicles of The Synapse and the phantom industrial lore of Rail-Runner\'s Ghost.')">
+            <div class="moon-glass">
+                <div class="vortex"></div>
+                <div class="portal-core">
+                    <span class="rune-glyph">ᚱ</span>
+                </div>
+            </div>
+            <h2 class="portal-title">The Weavers Coil</h2>
+            <div class="portal-status">[FREQUENCY TUNING: 18Hz // APPROACHING ORBIT]</div>
+            <p class="portal-desc">The narrative nexus and cosmic production slate. Housing the neural sci-fi corridors of The Synapse and the phantom industrial lore of Rail-Runner's Ghost.</p>
+        </article>
+
+        <!-- Portal 2: The Blood Circle -->
+        <article class="portal-card portal-blood" onclick="openPortalModal('The Blood Circle', '[AWAITING THE FIRST MOON // VEIL SHROUDED]', 'A sensory-affirming cycle-care sanctuary. Providing zero-metal Aethel-silk linens, grounding Geckoorul companions, and rhythmic Tide Ledgers. Houses the upcoming Sanctuary Companion App.')">
+            <div class="moon-glass">
+                <div class="vortex"></div>
+                <div class="portal-core">
+                    <span class="rune-glyph">ᛋ</span>
+                </div>
+            </div>
+            <h2 class="portal-title">The Blood Circle</h2>
+            <div class="portal-status">[AWAITING THE FIRST MOON // VEIL SHROUDED]</div>
+            <p class="portal-desc">A sensory-affirming cycle-care sanctuary. Providing zero-metal Aethel-silk linens, grounding Geckoorul companions, and rhythmic Tide Ledgers.</p>
+        </article>
+
+        <!-- Portal 3: The Vault -->
+        <article class="portal-card portal-vault" onclick="openPortalModal('The Vault', '[SEALED IN SHADOW // UNLOCKING CYCLE 01]', 'The studio retail archive. Home to bespoke Aeterna-Noir apparel, fine art prints, and handcrafted lore artifacts.')">
+            <div class="moon-glass">
+                <div class="vortex"></div>
+                <div class="portal-core">
+                    <span class="rune-glyph">ᚦ</span>
+                </div>
+            </div>
+            <h2 class="portal-title">The Vault</h2>
+            <div class="portal-status">[SEALED IN SHADOW // UNLOCKING CYCLE 01]</div>
+            <p class="portal-desc">The studio retail archive. Home to bespoke Aeterna-Noir apparel, fine art prints, and handcrafted lore artifacts.</p>
+        </article>
+
+    </main>
+
+    <!-- The Hearth Dispatch Mailing List -->
+    <section class="hearth-section">
+        <h2 class="hearth-title">The Hearth Dispatch</h2>
+        <p class="hearth-sub">Join the inner sanctuary for rhythmic lore dispatches, portal opening dates, and early access to the forge.</p>
+
+        <form class="hearth-form" id="hearth-signup" onsubmit="handleSignup(event)">
+            <input type="email" class="hearth-input" id="email-input" placeholder="Enter your signal / email..." required spellcheck="false">
+            <button type="submit" class="hearth-btn">Transmit Signal</button>
+        </form>
+        <div class="form-feedback" id="form-msg">[Signal Received: You are attuned to the Hearth Dispatch.]</div>
+    </section>
+
+    <!-- Modal Transmission Card -->
+    <div class="modal-overlay" id="portal-modal" onclick="closePortalModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+            <h3 class="modal-title" id="modal-title-text">Portal Details</h3>
+            <div class="modal-status" id="modal-status-text">Status</div>
+            <p class="modal-body" id="modal-body-text">Description</p>
+            <button class="hearth-btn" onclick="scrollToHearth()">Notify Me at Launch</button>
+        </div>
     </div>
-  </section>
 
-  <!-- Active Narrative Slate -->
-  <section id="productions">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Production Slate</span>
-        <h2 class="section-title">Active Narrative Series</h2>
-        <p class="section-desc">Original episodic fiction, industrial folk mythology, and cybernetic audio dramas.</p>
-      </div>
+    <!-- Footer -->
+    <footer>
+        &copy; Shadow & Rune Studios // Sovereign Aeterna-Noir Architecture.
+    </footer>
 
-      <div class="grid-2">
-        <!-- The Synapse Series -->
-        <div class="card" style="border-left: 3px solid var(--accent-violet);">
-          <span class="section-tag" style="color: var(--accent-violet);">Active Episodic Series</span>
-          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">The Synapse</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-            A high-fidelity cognitive sci-fi narrative exploring bio-harmonic knotworks, cybernetic isolation protocols, and the sovereign frequency of the Aegis Directive.
-          </p>
-          <div style="display: flex; gap: 10px;">
-            <a href="#" class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Read Episode 01</a>
-            <a href="#" class="btn btn-violet" style="font-size: 0.75rem; padding: 6px 14px;">Listen to Stems</a>
-          </div>
-        </div>
+    <!-- Web Audio & Interaction Script -->
+    <script>
+        // 18Hz Sub-Bass Audio Resonance Engine
+        let audioCtx = null;
+        let osc1 = null;
+        let osc2 = null;
+        let gainNode = null;
+        let isAudioPlaying = false;
 
-        <!-- Rail-Runner's Ghost -->
-        <div class="card" style="border-left: 3px solid var(--accent-copper);">
-          <span class="section-tag" style="color: var(--accent-copper);">Active Narrative</span>
-          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Rail-Runner's Ghost</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-            An atmospheric industrial folk lore piece tracing the phantom rail lines across the Obsidian Taiga, historical archives, and the silent weight of the White Hush.
-          </p>
-          <div style="display: flex; gap: 10px;">
-            <a href="#" class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Explore Archives</a>
-            <a href="#" class="btn btn-primary" style="font-size: 0.75rem; padding: 6px 14px;">Audio Prologue</a>
-          </div>
-        </div>
-      </div>
+        const audioBtn = document.getElementById('audio-btn');
 
-      <!-- In-Development Roadmaps -->
-      <div style="margin-top: 40px;" class="grid-2">
-        <div class="card" style="opacity: 0.85;">
-          <span class="section-tag" style="color: var(--accent-gold);">In Development</span>
-          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Shadow & Forge</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">
-            The mythic star-iron smithing traditions and the 545°F thermal furnace holding the sky.
-          </p>
-        </div>
-        <div class="card" style="opacity: 0.85;">
-          <span class="section-tag" style="color: var(--accent-emerald);">In Development</span>
-          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">The Lunar Veil</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">
-            The celestial portalwalker origins and the deep acoustic resonance of The Negative.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        audioBtn.addEventListener('click', () => {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
 
-  <!-- Flagship Venture Gate: The Blood Moon Circle -->
-  <section id="sanctuary-circle" style="background: linear-gradient(180deg, var(--bg-obsidian) 0%, var(--bg-surface) 50%, var(--bg-obsidian) 100%);">
-    <div class="container">
-      <div class="card" style="padding: 48px; border: 1px solid var(--accent-copper-glow); text-align: center; background: radial-gradient(circle at center, rgba(214, 155, 155, 0.08) 0%, rgba(20, 21, 34, 0.95) 80%);">
-        <span class="section-tag" style="color: var(--accent-copper);">Flagship Physical Venture</span>
-        <h2 style="font-size: 2.5rem; margin-bottom: 16px;">The Blood Moon Circle</h2>
-        <p style="max-width: 640px; margin: 0 auto 32px; color: var(--text-muted); font-size: 1rem;">
-          A monthly cycle-care subscription pairing weighted thermal familiar plushies, stain-free organic linens, and ancient hearth rituals for youth and adults.
-        </p>
-        <div style="display: flex; justify-content: center; gap: 16px;">
-          <a href="blood-moon-circle/" class="btn btn-primary" style="padding: 14px 32px;">Reserve December Launch Box</a>
-          <a href="sanctuary/" class="btn btn-secondary">Open Companion App</a>
-        </div>
-      </div>
-    </div>
-  </section>
+            if (!isAudioPlaying) {
+                // Create 18Hz foundational sub-bass tone
+                osc1 = audioCtx.createOscillator();
+                osc2 = audioCtx.createOscillator();
+                gainNode = audioCtx.createGain();
 
-  <!-- Separate Lore Merch Vault Gate -->
-  <section id="merch-vault">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Studio Store</span>
-        <h2 class="section-title">The Lore & Merch Vault</h2>
-        <p class="section-desc">Standalone graphic apparel, fine art prints, and character collectibles. Fulfilled on-demand.</p>
-      </div>
+                osc1.type = 'sine';
+                osc1.frequency.setValueAtTime(18, audioCtx.currentTime); // 18Hz Bedrock thrum
 
-      <div class="grid-3">
-        <div class="card" style="text-align: center;">
-          <div style="height: 180px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted);">👕</div>
-          <h4 style="margin-bottom: 6px;">Synapse Sector 08 Tee</h4>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 14px;">Heavyweight vintage wash cotton with glowing cyber-glyph back print.</p>
-          <span style="font-weight: 600; color: var(--accent-copper);">$34.00</span>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div style="height: 180px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted);">🖼️</div>
-          <h4 style="margin-bottom: 6px;">Obsidian Taiga Giclée Print</h4>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 14px;">Archival fine art print on 310gsm textured cotton rag.</p>
-          <span style="font-weight: 600; color: var(--accent-copper);">$42.00</span>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div style="height: 180px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted);">☕</div>
-          <h4 style="margin-bottom: 6px;">Rail-Runner's Enamel Mug</h4>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 14px;">Campfire steel enamel mug with phantom lantern vector.</p>
-          <span style="font-weight: 600; color: var(--accent-copper);">$18.00</span>
-        </div>
-      </div>
-    </div>
-  </section>
+                osc2.type = 'sine';
+                osc2.frequency.setValueAtTime(36, audioCtx.currentTime); // Gentle harmonic
 
-  <!-- Footer -->
-  <footer style="border-top: 1px solid var(--bg-card-border); padding: 48px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
-    <div class="container">
-      <p style="margin-bottom: 12px;">© 2026 Shadow & Rune Studios. All rights reserved.</p>
-      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">Hosted on GitHub Pages • Powered by Jules • Zero-Waste Artisan Craft</p>
-    </div>
-  </footer>
+                gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime); // Sensory-friendly volume
 
+                osc1.connect(gainNode);
+                osc2.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                osc1.start();
+                osc2.start();
+
+                isAudioPlaying = true;
+                audioBtn.textContent = '[Resonance: 18Hz Active]';
+                audioBtn.classList.add('active');
+            } else {
+                osc1.stop();
+                osc2.stop();
+                osc1.disconnect();
+                osc2.disconnect();
+                isAudioPlaying = false;
+                audioBtn.textContent = '[Resonance: Muted]';
+                audioBtn.classList.remove('active');
+            }
+        });
+
+        // Form Handling Simulation
+        function handleSignup(e) {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            if (email) {
+                document.getElementById('form-msg').style.display = 'block';
+                document.getElementById('email-input').value = '';
+            }
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('portal-modal');
+        const modalTitle = document.getElementById('modal-title-text');
+        const modalStatus = document.getElementById('modal-status-text');
+        const modalBody = document.getElementById('modal-body-text');
+
+        function openPortalModal(title, status, body) {
+            modalTitle.textContent = title;
+            modalStatus.textContent = status;
+            modalBody.textContent = body;
+
+            if (title.includes('Weavers')) {
+                modalStatus.style.color = 'var(--liquid-gold)';
+            } else if (title.includes('Blood')) {
+                modalStatus.style.color = 'var(--blood-moon)';
+            } else {
+                modalStatus.style.color = 'var(--rune-silver)';
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function closePortalModal(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function closeModalDirect() {
+            modal.style.display = 'none';
+        }
+
+        function scrollToHearth() {
+            modal.style.display = 'none';
+            document.querySelector('.hearth-section').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('email-input').focus();
+        }
+    </script>
 </body>
 </html>
