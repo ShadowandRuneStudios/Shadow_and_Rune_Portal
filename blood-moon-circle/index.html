@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Blood Moon Circle — Sanctuary Cycle Care & Collectibles</title>
+  <meta name="description" content="A comforting, zero-waste monthly subscription pairing weighted thermal familiar therapy, stain-free organic linens, and ancient hearth rituals.">
+  <link rel="stylesheet" href="../css/studio.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div style="background: linear-gradient(90deg, #9D72F3 0%, #D69B9B 100%); color: #0A0A0E; text-align: center; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; letter-spacing: 0.08em; text-transform: uppercase;">
+    ✦ FREE US SHIPPING ON ALL DECEMBER LAUNCH PRE-ORDERS • YOUR SANCTUARY AWAITS ✦
+  </div>
+
+  <!-- Navigation -->
+  <header class="header-nav">
+    <a href="../" class="brand-logo" style="color: var(--text-bone);">
+      <span style="color: var(--accent-copper);">☽</span> THE BLOOD MOON CIRCLE
+    </a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#tiers">Tiers</a></li>
+      <li><a href="#anchors">The 4 Anchors</a></li>
+      <li><a href="#pricing">Pre-Order</a></li>
+      <li><a href="#apothecary">Apothecary</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="../" style="font-size: 0.75rem; color: var(--accent-violet);">← Studio Portal</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero Section -->
+  <section style="min-height: 85vh; display: flex; align-items: center; background: radial-gradient(circle at center, rgba(214, 155, 155, 0.1) 0%, rgba(10, 10, 14, 1) 80%);">
+    <div class="container" style="text-align: center;">
+      <span class="section-tag" style="color: var(--accent-copper);">Zero-Waste Menstrual Sanctuary Care</span>
+      <h1 style="font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2;">A Sanctuary for Your Cycle</h1>
+      <p style="max-width: 680px; margin: 0 auto 36px; color: var(--text-muted); font-size: 1.05rem;">
+        A rhythmic monthly ritual pairing weighted sensory thermal therapy, stain-free organic linens, and ancient hearth rituals for youth and adults.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="#pricing" class="btn btn-primary" style="padding: 14px 32px;">Reserve December Box — Ships Dec 1</a>
+        <a href="#tiers" class="btn btn-secondary">Explore Raven & Siren Tiers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Philosophy -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">The Philosophy</span>
+        <h2 class="section-title">The Hearth of Our Mission</h2>
+        <p class="section-desc">Cycles are not clinical inconveniences to hide—they are natural times for retreat, sensory regulation, and restoration.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <h4 style="margin-bottom: 8px; color: var(--accent-copper);">Sensory-Safe</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Designed specifically for sensory sensitivities. Zero itchy tags, zero loud crinkles, zero cold metals.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom: 8px; color: var(--accent-violet);">Gentle Menarche</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Softening first periods for young teens with empowering, shame-free guidance and leakproof sleep protection.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom: 8px; color: var(--accent-gold);">Zero-Metal Design</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">100% soft buttons, ribbon ties, cotton cords, and resin snaps. Completely microwave-safe and skin-gentle.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom: 8px; color: var(--accent-emerald);">Closed-Loop Cycle</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Plantable wildflower seed paper bands, box lid altars, and 5-year reusable organic cotton linens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual-Tier Interactive Selector -->
+  <section id="tiers" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curated Editions</span>
+        <h2 class="section-title">Select Your Sanctuary Tier</h2>
+        <p class="section-desc">Tailored to support your exact life stage and nervous system needs.</p>
+      </div>
+
+      <!-- Toggle Buttons -->
+      <div class="tier-toggle-wrapper">
+        <div class="tier-toggle">
+          <button id="btn-raven" class="active" onclick="switchTier('raven')">✦ Raven Tier (Youth / First Cycle)</button>
+          <button id="btn-siren" onclick="switchTier('siren')">☽ Siren Tier (Adult Restoration)</button>
+        </div>
+      </div>
+
+      <!-- Raven Tier Card View -->
+      <div id="view-raven" class="card" style="border: 1px solid var(--accent-violet); max-width: 800px; margin: 0 auto; padding: 40px;">
+        <span class="section-tag" style="color: var(--accent-violet);">First Menarche & Neurodivergent Focus</span>
+        <h3 style="font-size: 2rem; margin-bottom: 16px;">The Raven Tier</h3>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">
+          Created to eliminate fear, confusion, and sensory overwhelm during first cycles and puberty. Empowering, shame-free, and tactile.
+        </p>
+        <ul style="list-style: none; space-y: 12px; margin-bottom: 32px; color: var(--text-bone); font-size: 0.9rem;">
+          <li style="margin-bottom: 10px;">✔ <strong>The Geckoorul Weighted Plushie:</strong> 1.5 lb deep-pressure therapy with swappable heat & ice packs.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Aethel-Silk 5-Piece Pad Starter Set:</strong> Dark charcoal fleece (100% stain-proof) + dual wing snaps.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Hearth-Fire Bed-Protection Mat (27"x35"):</strong> Diamond-quilted flannel & silent waterproof backing.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Obsidian Taiga Pine Sensory Putty:</strong> Pitch-black silver-glitter therapy fidget putty for cramp distraction.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>The Mist Satchel & Sanctuary Wash Net:</strong> Discreet backpack travel kit with stone Anchor Pocket.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Tide Ledger Coloring Scroll:</strong> 28-day simplified moon clock & step-by-step pad care comic.</li>
+        </ul>
+        <a href="#pricing" class="btn btn-violet" style="width: 100%;">Select Raven Tier Pre-Order</a>
+      </div>
+
+      <!-- Siren Tier Card View (Hidden by default) -->
+      <div id="view-siren" class="card" style="border: 1px solid var(--accent-copper); max-width: 800px; margin: 0 auto; padding: 40px; display: none;">
+        <span class="section-tag" style="color: var(--accent-copper);">Adult Restorative & Cyclical Wisdom</span>
+        <h3 style="font-size: 2rem; margin-bottom: 16px;">The Siren Tier</h3>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">
+          Formulated for established menstruators, chronic pelvic pain relief, and honoring restorative downtime.
+        </p>
+        <ul style="list-style: none; space-y: 12px; margin-bottom: 32px; color: var(--text-bone); font-size: 0.9rem;">
+          <li style="margin-bottom: 10px;">✔ <strong>The Geckoorul Weighted Plushie:</strong> 1.5 lb DPT weighted companion with heat & ice cores.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Aethel-Silk 5-Piece Pad Starter Set:</strong> Stain-free bamboo charcoal fleece + seasonal PUL backings.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Hearth-Fire Bed-Protection Mat (27"x35"):</strong> Complete overnight peace of mind.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Winter Hearth Botanical Tea (1.5 oz):</strong> Organic Raspberry Leaf, Ginger, Cinnamon & Orange Peel.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Hand-Dipped Beeswax Hearth Candle:</strong> Pure beeswax infused with pine resin & clove for evening rest.</li>
+          <li style="margin-bottom: 10px;">✔ <strong>Tide Ledger Coloring Scroll:</strong> Full 16-panel art therapy mandala & hormonal phase-tracking.</li>
+        </ul>
+        <a href="#pricing" class="btn btn-primary" style="width: 100%;">Select Siren Tier Pre-Order</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 4 Physical Sanctuary Anchors -->
+  <section id="anchors">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Master Artifacts</span>
+        <h2 class="section-title">The Four Physical Anchors</h2>
+        <p class="section-desc">Every Box 1 delivers our complete four-pillar sanctuary foundation.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="section-tag" style="color: var(--accent-copper);">Anchor 01</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">The Geckoorul Familiar</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            A 16" weighted sensory plushie with seamless dorsal embroidery, dual posture (drapes flat or sits upright on a 3-point tripod), tactile lamellae paws, and a front-facing kangaroo belly pouch holding swappable 100% cotton muslin Vali (heat) and Kuli (ice) packs. Zero metal.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="section-tag" style="color: var(--accent-copper);">Anchor 02</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Aethel-Silk Linens & Bed Mat</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            5-piece reusable pad starter set with permanently stain-free Bamboo Charcoal fleece topsheets and leakproof seasonal PUL backings. Paired with the 27"x35" diamond-quilted, completely silent Hearth-Fire bed mat.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="section-tag" style="color: var(--accent-copper);">Anchor 03</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">The Nocturnal Altar & Lap Desk</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            An 12"x9"x4" double-sided matte-black display mailer. The inside lid functions as a 12-month stone charging altar under moonlight; the removable base insert functions as a rigid, curl-free Lap Desk holding your scroll taut in bed.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="section-tag" style="color: var(--accent-copper);">Anchor 04</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">The Tide Ledger Scroll</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            An 8.5"x36" continuous heavy parchment coloring scroll mounted on natural birch dowels, crowned with a collectible hanging metal talisman and plantable scrap seed paper index tag.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Order Commitment Options -->
+  <section id="pricing" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Launch Commitments</span>
+        <h2 class="section-title">Join the December Inaugural Circle</h2>
+        <p class="section-desc">Lock in founder pricing. All pre-orders ship December 1st in time for the Winter Solstice.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Monthly Rolling -->
+        <div class="card" style="text-align: center;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Monthly Rolling</h4>
+          <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-copper); margin-bottom: 8px;">$68<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">Flexible month-to-month cycle sanctuary. Cancel or pause anytime with 1 click.</p>
+          <a href="#" class="btn btn-secondary" style="width: 100%;">Pre-Order Monthly</a>
+        </div>
+
+        <!-- 3-Month Seasonal Cycle (Featured) -->
+        <div class="card" style="text-align: center; border: 2px solid var(--accent-copper); transform: translateY(-8px); box-shadow: 0 12px 30px var(--accent-copper-glow);">
+          <span class="section-tag" style="color: var(--accent-copper);">Most Popular Choice</span>
+          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">3-Month Seasonal Cycle</h4>
+          <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-copper); margin-bottom: 8px;">$59<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">$177 billed upfront. Saves $27 and guarantees your complete Q1 winter wardrobe collection.</p>
+          <a href="#" class="btn btn-primary" style="width: 100%;">Pre-Order 3-Month Cycle</a>
+        </div>
+
+        <!-- 12-Month Sacred Circle -->
+        <div class="card" style="text-align: center;">
+          <span class="section-tag" style="color: var(--accent-gold);">Best Value</span>
+          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">12-Month Sacred Circle</h4>
+          <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px;">$52<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">$624 billed upfront. Complete 16-pad collection, 12 stones & full year familiar wardrobe.</p>
+          <a href="#" class="btn btn-secondary" style="width: 100%;">Pre-Order Annual Circle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section id="faq">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <span class="section-tag">Ritual Inquiries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do I wash the Aethel-Silk reusable pads? <span>+</span></div>
+          <div class="faq-answer">Rinse used pads under cool tap water until runoff is clear, toss them into your included Sanctuary Wash Net, and wash on a standard gentle cycle with mild detergent. Hang to dry or tumble dry low. Never use fabric softeners or bleach.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do the Vali (Heat) and Kuli (Cold) thermal packs work? <span>+</span></div>
+          <div class="faq-answer">Take the cotton muslin pack out of the Geckoorul's belly. Microwave Vali with 1/2 cup of water for 45–60 seconds, or store Kuli in your freezer inside its dedicated Frost Sleeve. Slip the pack back into the kangaroo pouch and button closed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Is the Geckoorul plushie microwave-safe? <span>+</span></div>
+          <div class="faq-answer">Only the 100% natural cotton muslin inner pack (Vali) goes into the microwave. The outer plushie stays safely on your bed, ready to receive the warm pack.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Will the pads fit a young teen having her first period? <span>+</span></div>
+          <div class="faq-answer">Yes! Each pad features dual KAM plastic snaps on the wings, allowing the snapped width to adjust down to 2.5 inches to fit narrow youth underwear snugly without twisting.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Can I pause, change tiers, or cancel anytime? <span>+</span></div>
+          <div class="faq-answer">Yes. You can swap between the Raven and Siren tiers, update your address, skip a month, or cancel anytime with 1 click in your account portal.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid var(--bg-card-border); padding: 48px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+    <div class="container">
+      <p style="margin-bottom: 12px;">© 2026 The Blood Moon Circle • Shadow & Rune Studios</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">Handcrafted with care in Utah • Zero-Metal Sensory Assurance</p>
+    </div>
+  </footer>
+
+  <!-- Script for Tier Toggle and FAQ -->
+  <script>
+    function switchTier(tier) {
+      const ravenBtn = document.getElementById('btn-raven');
+      const sirenBtn = document.getElementById('btn-siren');
+      const ravenView = document.getElementById('view-raven');
+      const sirenView = document.getElementById('view-siren');
+
+      if (tier === 'raven') {
+        ravenBtn.classList.add('active');
+        sirenBtn.classList.remove('active');
+        ravenView.style.display = 'block';
+        sirenView.style.display = 'none';
+      } else {
+        sirenBtn.classList.add('active');
+        ravenBtn.classList.remove('active');
+        sirenView.style.display = 'block';
+        ravenView.style.display = 'none';
+      }
+    }
+
+    function toggleFaq(elem) {
+      const item = elem.parentElement;
+      item.classList.toggle('open');
+      const icon = elem.querySelector('span');
+      icon.textContent = item.classList.contains('open') ? '−' : '+';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,81 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadow and Rune Studios // Portal</title>
-    <style>
-        body {
-            background-color: #000000;
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(183, 110, 121, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(148, 0, 211, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(183, 110, 121, 0.05) 0%, transparent 60%);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            color: #ffffff;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 20px;
-            margin: 0;
-            overflow-x: hidden;
-        }
-        #terminal {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .accent-gold { color: #ffd700; }
-        .accent-violet { color: #9400d3; }
-        .accent-silver { color: #cccccc; }
-        .input-line {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-        }
-        #prompt {
-            color: #ffd700;
-            margin-right: 10px;
-            user-select: none;
-        }
-        #cmd-input {
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            font-family: inherit;
-            font-size: inherit;
-            outline: none;
-            width: 100%;
-        }
-        .blink {
-            animation: blinker 1s linear infinite;
-        }
-        @keyframes blinker {
-            50% { opacity: 0; }
-        }
-        .history-line {
-            margin-bottom: 5px;
-            white-space: pre-wrap;
-            line-height: 1.4;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow & Rune Studios — Master Production Portal</title>
+  <meta name="description" content="A multi-disciplinary production studio crafting immersive episodic narratives, resonant frequency soundscapes, and physical sanctuary products.">
+  <link rel="stylesheet" href="css/studio.css">
 </head>
 <body>
-    <div id="terminal">
-        <div id="output">
-            <div class="history-line accent-gold">SHADOW AND RUNE STUDIOS // CORE TERMINAL v1.0</div>
-            <div class="history-line accent-violet">[SYSTEM_STATUS: NIGHT_STATIC_VAPORIZED // RESONANCE: 1.0_ABSOLUTE]</div>
-            <div class="history-line">Type <span class="accent-gold">'help'</span> for a list of available sovereign commands.</div>
-            <div class="history-line">------------------------------------------------------------</div>
-        </div>
-        <div class="input-line">
-            <div id="prompt">SR-SYS_&gt;</div>
-            <input type="text" id="cmd-input" autofocus autocomplete="off" spellcheck="false">
-        </div>
-    </div>
 
-    <script src="lore.js"></script>
-    <script src="parser.js"></script>
-    <script src="app.js"></script>
+  <!-- Navigation -->
+  <header class="header-nav">
+    <div class="brand-logo">
+      <span>✦</span> SHADOW & RUNE STUDIOS
+    </div>
+    <ul class="nav-links">
+      <li><a href="#productions">Productions</a></li>
+      <li><a href="#sanctuary-circle">The Blood Moon</a></li>
+      <li><a href="#merch-vault">Merch Vault</a></li>
+      <li><a href="#lore">Taiga Lore</a></li>
+      <li><a href="blood-moon-circle/" class="btn btn-primary" style="padding: 6px 16px;">Pre-Order Box</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-studio" style="min-height: 80vh; display: flex; align-items: center; background: radial-gradient(circle at center, rgba(157, 114, 243, 0.08) 0%, rgba(10, 10, 14, 1) 75%);">
+    <div class="container" style="text-align: center;">
+      <span class="section-tag">Independent Creative Production House</span>
+      <h1 style="font-size: 3rem; margin-bottom: 24px; line-height: 1.2;">Crafting Immersive Worlds,<br>Resonant Frequencies & Sanctuaries</h1>
+      <p style="max-width: 680px; margin: 0 auto 36px; color: var(--text-muted); font-size: 1.05rem;">
+        Bridging the deep mythic resonance of The Negative into physical craft, episodic storytelling, and therapeutic cycle-care rituals.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="blood-moon-circle/" class="btn btn-primary">✦ Enter The Blood Moon Circle</a>
+        <a href="#productions" class="btn btn-secondary">Explore Active Productions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Narrative Slate -->
+  <section id="productions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Production Slate</span>
+        <h2 class="section-title">Active Narrative Series</h2>
+        <p class="section-desc">Original episodic fiction, industrial folk mythology, and cybernetic audio dramas.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- The Synapse Series -->
+        <div class="card" style="border-left: 3px solid var(--accent-violet);">
+          <span class="section-tag" style="color: var(--accent-violet);">Active Episodic Series</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">The Synapse</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            A high-fidelity cognitive sci-fi narrative exploring bio-harmonic knotworks, cybernetic isolation protocols, and the sovereign frequency of the Aegis Directive.
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <a href="#" class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Read Episode 01</a>
+            <a href="#" class="btn btn-violet" style="font-size: 0.75rem; padding: 6px 14px;">Listen to Stems</a>
+          </div>
+        </div>
+
+        <!-- Rail-Runner's Ghost -->
+        <div class="card" style="border-left: 3px solid var(--accent-copper);">
+          <span class="section-tag" style="color: var(--accent-copper);">Active Narrative</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Rail-Runner's Ghost</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            An atmospheric industrial folk lore piece tracing the phantom rail lines across the Obsidian Taiga, historical archives, and the silent weight of the White Hush.
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <a href="#" class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Explore Archives</a>
+            <a href="#" class="btn btn-primary" style="font-size: 0.75rem; padding: 6px 14px;">Audio Prologue</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- In-Development Roadmaps -->
+      <div style="margin-top: 40px;" class="grid-2">
+        <div class="card" style="opacity: 0.85;">
+          <span class="section-tag" style="color: var(--accent-gold);">In Development</span>
+          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Shadow & Forge</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            The mythic star-iron smithing traditions and the 545°F thermal furnace holding the sky.
+          </p>
+        </div>
+        <div class="card" style="opacity: 0.85;">
+          <span class="section-tag" style="color: var(--accent-emerald);">In Development</span>
+          <h4 style="font-size: 1.2rem; margin-bottom: 8px;">The Lunar Veil</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            The celestial portalwalker origins and the deep acoustic resonance of The Negative.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flagship Venture Gate: The Blood Moon Circle -->
+  <section id="sanctuary-circle" style="background: linear-gradient(180deg, var(--bg-obsidian) 0%, var(--bg-surface) 50%, var(--bg-obsidian) 100%);">
+    <div class="container">
+      <div class="card" style="padding: 48px; border: 1px solid var(--accent-copper-glow); text-align: center; background: radial-gradient(circle at center, rgba(214, 155, 155, 0.08) 0%, rgba(20, 21, 34, 0.95) 80%);">
+        <span class="section-tag" style="color: var(--accent-copper);">Flagship Physical Venture</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 16px;">The Blood Moon Circle</h2>
+        <p style="max-width: 640px; margin: 0 auto 32px; color: var(--text-muted); font-size: 1rem;">
+          A monthly cycle-care subscription pairing weighted thermal familiar plushies, stain-free organic linens, and ancient hearth rituals for youth and adults.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 16px;">
+          <a href="blood-moon-circle/" class="btn btn-primary" style="padding: 14px 32px;">Reserve December Launch Box</a>
+          <a href="sanctuary/" class="btn btn-secondary">Open Companion App</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Separate Lore Merch Vault Gate -->
+  <section id="merch-vault">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Studio Store</span>
+        <h2 class="section-title">The Lore & Merch Vault</h2>
+        <p class="section-desc">Standalone graphic apparel, fine art prints, and character collectibles. Fulfilled on-demand.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card" style="text-align: center;">
+          <div style="height: 180px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted);">👕</div>
+          <h4 style="margin-bottom: 6px;">Synapse Sector 08 Tee</h4>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 14px;">Heavyweight vintage wash cotton with glowing cyber-glyph back print.</p>
+          <span style="font-weight: 600; color: var(--accent-copper);">$34.00</span>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="height: 180px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted);">🖼️</div>
+          <h4 style="margin-bottom: 6px;">Obsidian Taiga Giclée Print</h4>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 14px;">Archival fine art print on 310gsm textured cotton rag.</p>
+          <span style="font-weight: 600; color: var(--accent-copper);">$42.00</span>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="height: 180px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted);">☕</div>
+          <h4 style="margin-bottom: 6px;">Rail-Runner's Enamel Mug</h4>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 14px;">Campfire steel enamel mug with phantom lantern vector.</p>
+          <span style="font-weight: 600; color: var(--accent-copper);">$18.00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid var(--bg-card-border); padding: 48px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+    <div class="container">
+      <p style="margin-bottom: 12px;">© 2026 Shadow & Rune Studios. All rights reserved.</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">Hosted on GitHub Pages • Powered by Jules • Zero-Waste Artisan Craft</p>
+    </div>
+  </footer>
+
 </body>
 </html>
