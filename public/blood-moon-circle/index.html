@@ -35,11 +35,19 @@
     <div class="container" style="text-align: center;">
       <span class="section-tag" style="color: var(--accent-copper);">Zero-Waste Menstrual Sanctuary Care</span>
       <h1 style="font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2;">A Sanctuary for Your Cycle</h1>
-      <p style="max-width: 680px; margin: 0 auto 36px; color: var(--text-muted); font-size: 1.05rem;">
+      <p style="max-width: 680px; margin: 0 auto 12px; color: var(--text-muted); font-size: 1.05rem;">
         A rhythmic monthly ritual pairing weighted sensory thermal therapy, stain-free organic linens, and ancient hearth rituals for youth and adults.
       </p>
+      <p style="max-width: 680px; margin: 0 auto 36px; color: var(--text-muted); font-size: 1.05rem; font-weight: bold;">
+        Pre-Orders Opening Soon — Join the Waitlist
+      </p>
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+        <form style="display: flex; gap: 8px; width: 100%; max-width: 400px; align-items: stretch;" onsubmit="event.preventDefault(); alert('Added to waitlist!');">
+          <input type="email" placeholder="Enter your email" required style="flex-grow: 1; padding: 12px 16px; border-radius: 4px; border: 1px solid var(--accent-violet); background: var(--bg-surface-elevated); color: var(--text-bone);">
+          <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Join Waitlist</button>
+        </form>
+      </div>
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="#pricing" class="btn btn-primary" style="padding: 14px 32px;">Reserve December Box — Ships Dec 1</a>
         <a href="#tiers" class="btn btn-secondary">Explore Raven & Siren Tiers</a>
       </div>
     </div>
@@ -87,8 +95,8 @@
       <!-- Toggle Buttons -->
       <div class="tier-toggle-wrapper">
         <div class="tier-toggle">
-          <button id="btn-raven" class="active" onclick="switchTier('raven')">✦ Raven Tier (Youth / First Cycle)</button>
-          <button id="btn-siren" onclick="switchTier('siren')">☽ Siren Tier (Adult Restoration)</button>
+          <button id="btn-raven" class="active" onclick="switchTier('raven')">✦ Raven Tier (Youth / Menarche / Sensory Putty focus)</button>
+          <button id="btn-siren" onclick="switchTier('siren')">☽ Siren Tier (Adult / Restorative / Botanical Tea & Candle focus)</button>
         </div>
       </div>
 
@@ -107,7 +115,10 @@
           <li style="margin-bottom: 10px;">✔ <strong>The Mist Satchel & Sanctuary Wash Net:</strong> Discreet backpack travel kit with stone Anchor Pocket.</li>
           <li style="margin-bottom: 10px;">✔ <strong>Tide Ledger Coloring Scroll:</strong> 28-day simplified moon clock & step-by-step pad care comic.</li>
         </ul>
-        <a href="#pricing" class="btn btn-violet" style="width: 100%;">Select Raven Tier Pre-Order</a>
+        <form onsubmit="event.preventDefault(); alert('Added to waitlist!');" style="display: flex; flex-direction: column; gap: 8px; margin-top: 16px;">
+          <input type="email" placeholder="Email for Raven Waitlist" required style="padding: 10px; border-radius: 4px; border: 1px solid var(--accent-violet); background: var(--bg-surface-elevated); color: var(--text-bone);">
+          <button type="submit" class="btn btn-violet" style="width: 100%;">Join Waitlist</button>
+        </form>
       </div>
 
       <!-- Siren Tier Card View (Hidden by default) -->
@@ -125,7 +136,10 @@
           <li style="margin-bottom: 10px;">✔ <strong>Hand-Dipped Beeswax Hearth Candle:</strong> Pure beeswax infused with pine resin & clove for evening rest.</li>
           <li style="margin-bottom: 10px;">✔ <strong>Tide Ledger Coloring Scroll:</strong> Full 16-panel art therapy mandala & hormonal phase-tracking.</li>
         </ul>
-        <a href="#pricing" class="btn btn-primary" style="width: 100%;">Select Siren Tier Pre-Order</a>
+        <form onsubmit="event.preventDefault(); alert('Added to waitlist!');" style="display: flex; flex-direction: column; gap: 8px; margin-top: 16px;">
+          <input type="email" placeholder="Email for Siren Waitlist" required style="padding: 10px; border-radius: 4px; border: 1px solid var(--accent-violet); background: var(--bg-surface-elevated); color: var(--text-bone);">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Join Waitlist</button>
+        </form>
       </div>
     </div>
   </section>
@@ -190,7 +204,7 @@
           <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Monthly Rolling</h4>
           <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-copper); margin-bottom: 8px;">$68<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
           <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">Flexible month-to-month cycle sanctuary. Cancel or pause anytime with 1 click.</p>
-          <a href="#" class="btn btn-secondary" style="width: 100%;">Pre-Order Monthly</a>
+          <a href="#waitlist-modal" onclick="openWaitlistModal()" class="btn btn-secondary" style="width: 100%;">Pre-Order Monthly</a>
         </div>
 
         <!-- 3-Month Seasonal Cycle (Featured) -->
@@ -199,7 +213,7 @@
           <h4 style="font-size: 1.2rem; margin-bottom: 8px;">3-Month Seasonal Cycle</h4>
           <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-copper); margin-bottom: 8px;">$59<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
           <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">$177 billed upfront. Saves $27 and guarantees your complete Q1 winter wardrobe collection.</p>
-          <a href="#" class="btn btn-primary" style="width: 100%;">Pre-Order 3-Month Cycle</a>
+          <a href="#waitlist-modal" onclick="openWaitlistModal()" class="btn btn-primary" style="width: 100%;">Pre-Order 3-Month Cycle</a>
         </div>
 
         <!-- 12-Month Sacred Circle -->
@@ -208,11 +222,33 @@
           <h4 style="font-size: 1.2rem; margin-bottom: 8px;">12-Month Sacred Circle</h4>
           <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px;">$52<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
           <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px;">$624 billed upfront. Complete 16-pad collection, 12 stones & full year familiar wardrobe.</p>
-          <a href="#" class="btn btn-secondary" style="width: 100%;">Pre-Order Annual Circle</a>
+          <a href="#waitlist-modal" onclick="openWaitlistModal()" class="btn btn-secondary" style="width: 100%;">Pre-Order Annual Circle</a>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Waitlist Modal -->
+  <div id="waitlist-modal" style="display: none; position: fixed; inset: 0; background: rgba(10, 10, 14, 0.8); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="max-width: 500px; width: 90%; background: var(--bg-surface-elevated); padding: 32px; border-radius: 8px; border: 1px solid var(--accent-violet); text-align: center; position: relative;">
+      <button onclick="closeWaitlistModal()" style="position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer;">&times;</button>
+      <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-bone); margin-bottom: 16px;">Pre-Orders Opening Soon</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">Join the waitlist to get notified the moment the December Inaugural Circle opens. Founder pricing and bonuses available for early members.</p>
+      <form onsubmit="event.preventDefault(); alert('Added to waitlist!'); closeWaitlistModal();" style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="email" placeholder="Enter your email address" required style="padding: 14px; border-radius: 4px; border: 1px solid var(--accent-violet); background: var(--bg-surface); color: var(--text-bone); font-size: 1rem;">
+        <button type="submit" class="btn btn-primary" style="padding: 14px; font-size: 1rem;">Join the Waitlist</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openWaitlistModal() {
+      document.getElementById('waitlist-modal').style.display = 'flex';
+    }
+    function closeWaitlistModal() {
+      document.getElementById('waitlist-modal').style.display = 'none';
+    }
+  </script>
 
   <!-- FAQ Accordion -->
   <section id="faq">
