@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>The Sanctuary Hub — Shadow & Rune Studios</title>
   <meta name="description" content="Your digital cycle sanctuary. 40Hz Taiga Hearth Drone soundscapes, digital Tide Ledger clock, and zero-waste upcycling workshops.">
+  <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="../css/studio.css">
   <style>
     .pwa-container {
@@ -132,20 +133,25 @@
       </div>
     </div>
 
-    <!-- VIEW 3: SECOND-LIFE WORKSHOP & GUIDES -->
+    <!-- VIEW 3: CARE GUIDES -->
     <div id="view-guides" class="view-section">
       <div class="card" style="padding: 24px; margin-bottom: 16px;">
-        <span class="section-tag" style="color: var(--accent-emerald);">Upcycling Workshop</span>
-        <h4 style="font-size: 1.1rem; margin-bottom: 6px;">🌿 How to Plant Your Wildflower Band</h4>
-        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Fill your small refill box with potting soil, lay the seed paper band flat, cover with 1/4" dirt, and water gently.</p>
-        <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Watch 60s Video Guide</button>
+        <span class="section-tag" style="color: var(--accent-copper);">Heat Therapy</span>
+        <h4 style="font-size: 1.1rem; margin-bottom: 6px;">🔥 Vali Microwave Timer</h4>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">Heat your Vali plushie for exactly 45 seconds to reach optimal temperature safely.</p>
+        <button class="btn btn-secondary" id="vali-timer-btn" style="font-size: 0.75rem; padding: 6px 14px;" onclick="startValiTimer()">Start 45s Timer</button>
+        <div id="vali-timer-display" style="display: none; margin-top: 12px; font-size: 1.2rem; font-family: monospace; color: var(--accent-violet);">45</div>
       </div>
 
       <div class="card" style="padding: 24px; margin-bottom: 16px;">
-        <span class="section-tag" style="color: var(--accent-violet);">Sanctuary Organizing</span>
-        <h4 style="font-size: 1.1rem; margin-bottom: 6px;">🗄️ Styling Your Linen Drawer Caddy</h4>
-        <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px;">How to arrange your 16-pad collection into clean, color-coded vanity organizers across the year.</p>
-        <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">View Photo Guide</button>
+        <span class="section-tag" style="color: var(--accent-violet);">Linen Care</span>
+        <h4 style="font-size: 1.1rem; margin-bottom: 6px;">🧽 Pad Care Steps</h4>
+        <ol style="color: var(--text-muted); font-size: 0.8rem; padding-left: 20px; text-align: left; margin-bottom: 12px;">
+          <li>Rinse in cold water immediately after use.</li>
+          <li>Soak in cold water with a drop of mild detergent.</li>
+          <li>Machine wash cold with like colors.</li>
+          <li>Air dry flat or tumble dry low.</li>
+        </ol>
       </div>
     </div>
 
@@ -162,17 +168,53 @@
       <span>Tide Clock</span>
     </button>
     <button class="tab-btn" onclick="switchAppTab('guides', this)">
-      <span>🌱</span>
-      <span>Workshops</span>
+      <span>🌿</span>
+      <span>Care Guides</span>
     </button>
-    <a href="../blood-moon-circle/" class="tab-btn" style="color: var(--text-muted);">
+      <a href="../blood-moon-circle/" class="tab-btn" style="color: var(--text-muted); text-decoration: none;">
       <span>📦</span>
-      <span>The Box</span>
+      <span>Reserve Box</span>
     </a>
   </div>
 
   <!-- Interactive Audio & Clock Scripts -->
   <script>
+    // Vali Timer
+    let valiInterval = null;
+    function startValiTimer() {
+      const btn = document.getElementById('vali-timer-btn');
+      const display = document.getElementById('vali-timer-display');
+      btn.style.display = 'none';
+      display.style.display = 'block';
+      let timeLeft = 45;
+      display.textContent = timeLeft;
+
+      if(valiInterval) clearInterval(valiInterval);
+      valiInterval = setInterval(() => {
+        timeLeft -= 1;
+        display.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(valiInterval);
+          display.textContent = "Done!";
+          setTimeout(() => {
+            btn.style.display = 'inline-block';
+            display.style.display = 'none';
+          }, 3000);
+        }
+      }, 1000);
+    }
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+
     // Tab Switching
     const viewSections = document.querySelectorAll('.view-section');
     const tabBtns = document.querySelectorAll('.tab-btn');
@@ -282,8 +324,6 @@
       fragment.appendChild(path);
     }
     clockSvg.appendChild(fragment);
-      clockSvg.appendChild(path);
-    }
 
     // Affirmation Generator
     const whispers = [
